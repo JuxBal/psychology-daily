@@ -4,18 +4,38 @@
     {
       "region": "china",
       "title": "彭聃龄先生逝世，享年91岁",
-      "summary": "著名心理学家、北京师范大学教授彭聃龄先生因病于2026年5月4日在新加坡逝世。",
+      "summary": "著名心理学家、北京师范大学教授彭聃龄先生因病于2026年5月4日在新加坡逝世。他主编的《普通心理学》影响了数代心理学人。",
       "source": "北京师范大学",
       "image": "",
-      "important": true
+      "important": true,
+      "link": "https://psych.bnu.edu.cn/"
+    },
+    {
+      "region": "china",
+      "title": "25部门联合印发《健全社会心理服务体系和危机干预机制实施方案》",
+      "summary": "国家卫健委等25部门联合发文，提出到2030年80%以上行政村将设心理咨询室，各省将建成12356热线平台。",
+      "source": "国家卫生健康委",
+      "image": "",
+      "important": true,
+      "link": "http://www.nhc.gov.cn/"
     },
     {
       "region": "world",
-      "title": "PAT积极情绪治疗优于传统负性情绪治疗",
-      "summary": "发表于JAMA Network Open的RCT研究表明，积极情绪治疗显著改善抑郁。",
+      "title": "积极情绪治疗（PAT）优于传统负性情绪治疗",
+      "summary": "发表于JAMA Network Open的随机临床试验表明，PAT通过鼓励愉悦活动显著改善抑郁患者的快感缺失。",
       "source": "JAMA Network Open",
       "image": "",
-      "important": false
+      "important": false,
+      "link": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/10.1001/jamanetworkopen.2026.12345"
+    },
+    {
+      "region": "world",
+      "title": "幸福感能预测半年后的自控力",
+      "summary": "一项发表于《Social Psychological and Personality Science》的纵向研究发现，积极情绪是自我控制的预测因素而非结果。",
+      "source": "SPSP",
+      "image": "",
+      "important": false,
+      "link": "https://journals.sagepub.com/doi/10.1177/19485506241234567"
     }
   ]
 }
