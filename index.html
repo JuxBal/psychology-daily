@@ -33,7 +33,6 @@
       display: flex;
       flex-direction: column;
     }
-    /* 头部 */
     .header {
       background: white;
       padding: 16px 20px 12px;
@@ -97,7 +96,6 @@
       flex-direction: column;
       gap: 12px;
     }
-    /* 卡片 */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -121,8 +119,6 @@
     .tag-wd { background: #EEF5FA; color: var(--world); }
     .tag-important { background: #FFF7E6; color: #B86E1A; }
     .source { font-size: 0.65rem; color: var(--text-muted); margin-left: auto; }
-    .no-link { color: var(--text-muted); font-size: 0.7rem; }
-    /* 收藏按钮 */
     .fav-btn {
       position: absolute;
       top: 12px;
@@ -131,7 +127,6 @@
       z-index: 2; line-height: 1; transition: transform 0.2s;
     }
     .fav-btn:active { transform: scale(1.3); }
-    /* 收藏管理 */
     .bookmark-container { display: none; flex: 1; flex-direction: column; padding: 16px; }
     .folder-bar {
       display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
@@ -160,7 +155,6 @@
       font-size: 0.7rem; cursor: pointer; white-space: nowrap;
     }
     .empty { text-align: center; padding: 40px; color: var(--text-muted); }
-    /* 底部导航 */
     .nav {
       background: white;
       display: flex;
@@ -177,7 +171,6 @@
     }
     .nav-item.active { color: var(--text); font-weight: 600; }
     .nav-icon { font-size: 1.3rem; }
-    /* 弹窗 */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;
@@ -193,11 +186,14 @@
     .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
     .modal-actions button { padding: 6px 16px; border-radius: 8px; border: 1px solid #ddd; background: white; cursor: pointer; }
     .modal-actions .primary { background: var(--world); color: white; border: none; }
+    .share-btn {
+      background: #f0f4ff; border: 1px solid #b8c9e0; border-radius: 8px;
+      padding: 4px 10px; font-size: 0.7rem; cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- 新闻视图头部 -->
     <div class="header" id="newsHeader">
       <div class="header-date">
         <span id="dateDisplay"></span>
@@ -208,37 +204,28 @@
         <span class="stat stat-wd" id="wdCount">🌏 0条</span>
       </div>
     </div>
-    <!-- 收藏视图头部 -->
     <div class="bookmark-header" id="bookmarkHeader">
-      <button class="back-btn" id="backToNewsBtn">← 返回</button>
+      <button class="back-btn" id="backToNewsBtn">← 返回日报</button>
       <h2>📂 我的收藏</h2>
     </div>
-    <!-- 新闻分类Tab -->
     <div class="tabs" id="newsTabs">
       <div class="tab active" data-tab="all">全部</div>
       <div class="tab" data-tab="china">🇨🇳 中国</div>
       <div class="tab world-tab" data-tab="world">🌏 世界</div>
     </div>
-    <!-- 新闻列表 -->
     <div class="news-list" id="newsList"></div>
-    <!-- 收藏管理容器 -->
     <div class="bookmark-container" id="bookmarkContainer"></div>
-    <!-- 底部导航 -->
     <div class="nav">
-      <div class="nav-item active" data-nav="all"><span class="nav-icon">📰</span>全部</div>
+      <div class="nav-item active" data-nav="all"><span class="nav-icon">📰</span>日报</div>
       <div class="nav-item" data-nav="china"><span class="nav-icon">🇨🇳</span>中国</div>
       <div class="nav-item" data-nav="world"><span class="nav-icon">🌏</span>世界</div>
       <div class="nav-item" data-nav="bookmarks"><span class="nav-icon">📂</span>收藏</div>
     </div>
   </div>
-
-  <!-- 通用弹窗 -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modalContent"></div>
   </div>
-
   <script>
-    // ========== 日期显示 ==========
     function updateDateDisplay() {
       const now = new Date();
       const y = now.getFullYear();
@@ -250,29 +237,24 @@
     }
     updateDateDisplay();
 
-    // ========== 全局状态 ==========
     let allNews = [];
     let currentTab = 'all';
-    let currentView = 'news'; // 'news' 或 'bookmarks'
+    let currentView = 'news';
 
-    // ========== 收藏数据结构管理 ==========
     const STORAGE_KEY = 'psychdaily_bookmarks';
     function getBookmarksData() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
-      // 默认结构
       return { folders: [{ id: 'default', name: '默认文件夹' }], items: [] };
     }
     function saveBookmarksData(data) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     }
 
-    // ========== 新闻ID生成 ==========
     function getNewsId(news) {
       return btoa(encodeURIComponent(news.title + (news.source || '') + (news.link || ''))).substring(0, 32);
     }
 
-    // ========== 数据加载与渲染 ==========
     async function loadNews() {
       try {
         const response = await fetch('news.json?' + Date.now());
@@ -282,7 +264,7 @@
         updateCounts();
       } catch (e) {
         if (currentView === 'news') {
-          document.getElementById('newsList').innerHTML = '<div class="empty">⚠️ 日报加载失败，请稍后重试</div>';
+          document.getElementById('newsList').innerHTML = '<div class="empty">⚠️ 日报加载失败，请检查网络或稍后重试</div>';
         }
       }
     }
@@ -331,18 +313,15 @@
       document.getElementById('wdCount').textContent = `🌏 ${wdCount}条`;
     }
 
-    // ========== 收藏切换 ==========
     function toggleFav(btn) {
       const nid = btn.dataset.id;
       const bmData = getBookmarksData();
       const idx = bmData.items.findIndex(item => item.id === nid);
       if (idx !== -1) {
-        // 取消收藏
         bmData.items.splice(idx, 1);
         saveBookmarksData(bmData);
         btn.innerHTML = '🤍';
       } else {
-        // 添加收藏，默认放入第一个文件夹（默认文件夹）
         bmData.items.push({
           id: nid,
           title: btn.dataset.title,
@@ -355,18 +334,18 @@
         saveBookmarksData(bmData);
         btn.innerHTML = '❤️';
       }
-      // 如果当前在收藏视图，重新渲染
       if (currentView === 'bookmarks') renderBookmarks();
     }
 
-    // ========== 视图切换 ==========
     function setActiveTab(tab) {
       if (currentView !== 'news') switchToNewsView();
       currentTab = tab;
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`.tab[data-tab="${tab}"]`)?.classList.add('active');
       document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      document.querySelector(`.nav-item[data-nav="${tab}"]`)?.classList.add('active');
+      const activeNav = document.querySelector(`.nav-item[data-nav="${tab}"]`);
+      if (activeNav) activeNav.classList.add('active');
+      else document.querySelector('.nav-item[data-nav="all"]').classList.add('active');
       renderNews();
     }
 
@@ -377,10 +356,7 @@
       document.getElementById('newsTabs').style.display = 'flex';
       document.getElementById('newsList').style.display = 'flex';
       document.getElementById('bookmarkContainer').style.display = 'none';
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      const activeNav = document.querySelector(`.nav-item[data-nav="${currentTab}"]`);
-      if (activeNav) activeNav.classList.add('active');
-      else document.querySelector('.nav-item[data-nav="all"]').classList.add('active');
+      setActiveTab(currentTab);
     }
 
     function switchToBookmarksView() {
@@ -395,13 +371,11 @@
       renderBookmarks();
     }
 
-    // ========== 收藏管理界面 ==========
     let selectedFolderId = 'default';
     function renderBookmarks() {
       const container = document.getElementById('bookmarkContainer');
       const bmData = getBookmarksData();
       if (!bmData.folders.length) {
-        // 如果没有文件夹，创建默认
         bmData.folders = [{ id: 'default', name: '默认文件夹' }];
         saveBookmarksData(bmData);
       }
@@ -409,7 +383,6 @@
         container.innerHTML = '<div class="empty">📂 还没有收藏任何新闻，点击文章右侧的心形按钮添加吧</div>';
         return;
       }
-      // 确保选中的文件夹存在
       if (!bmData.folders.find(f => f.id === selectedFolderId)) {
         selectedFolderId = bmData.folders[0].id;
       }
@@ -422,6 +395,7 @@
                 <button class="folder-action-btn" onclick="newFolder()">＋新建</button>
                 <button class="folder-action-btn" onclick="renameFolder('${selectedFolderId}')">✎重命名</button>
                 <button class="folder-action-btn" onclick="deleteFolder('${selectedFolderId}')">🗑删除</button>
+                <button class="folder-action-btn share-btn" onclick="shareFolder('${selectedFolderId}')">📤 分享</button>
               </div></div>`;
       html += '<div class="bm-list">';
       if (!filteredItems.length) {
@@ -451,7 +425,39 @@
       renderBookmarks();
     }
 
-    // 文件夹操作
+    function shareFolder(folderId) {
+      const bmData = getBookmarksData();
+      const folder = bmData.folders.find(f => f.id === folderId);
+      const items = bmData.items.filter(i => i.folderId === folderId);
+      if (!items.length) return alert('该文件夹为空，无法分享');
+      let text = `📂 我的心理学收藏 · ${folder.name}\n\n`;
+      items.forEach((item, idx) => {
+        text += `${idx + 1}. ${item.title}\n   ${item.link || '无链接'}\n\n`;
+      });
+      text += `—— 来自 PsychDaily 心理学日报`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: `我的收藏：${folder.name}`,
+          text: text
+        }).catch(() => {
+          copyToClipboard(text);
+        });
+      } else {
+        copyToClipboard(text);
+      }
+    }
+
+    function copyToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('已复制到剪贴板，可粘贴分享给好友');
+    }
+
     function newFolder() {
       showModal('新建文件夹', '<input id="folderNameInput" placeholder="文件夹名称">', () => {
         const name = document.getElementById('folderNameInput').value.trim();
@@ -492,7 +498,6 @@
       renderBookmarks();
     }
 
-    // 条目操作
     function moveItem(itemId) {
       const bmData = getBookmarksData();
       const folders = bmData.folders.filter(f => f.id !== selectedFolderId);
@@ -515,11 +520,9 @@
       bmData.items = bmData.items.filter(i => i.id !== itemId);
       saveBookmarksData(bmData);
       renderBookmarks();
-      // 同时更新新闻页面的心形按钮
       if (currentView === 'news') renderNews();
     }
 
-    // 弹窗
     function showModal(title, innerHTML, onConfirm) {
       const overlay = document.getElementById('modalOverlay');
       const content = document.getElementById('modalContent');
@@ -540,7 +543,6 @@
       if (e.target === document.getElementById('modalOverlay')) closeModal();
     });
 
-    // ========== 事件绑定 ==========
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
     });
@@ -556,7 +558,6 @@
     });
     document.getElementById('backToNewsBtn').addEventListener('click', switchToNewsView);
 
-    // 初始加载
     loadNews();
   </script>
 </body>
