@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>PsychDaily · 心理学日报</title>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#FAF8F5">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <style>
     :root {
       --bg: #FAF8F5;
@@ -17,7 +13,7 @@
       --text-muted: #8A8276;
       --china: #B5343E;
       --world: #1A5276;
-      --shadow: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow: 0 2px 10px rgba(0,0,0,0.04);
       --radius: 16px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,12 +23,11 @@
       color: var(--text);
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       min-height: 100vh;
     }
     .app {
       width: 100%;
-      max-width: 480px;
+      max-width: 700px; /* 适当放宽，减少留白 */
       background: var(--bg);
       min-height: 100vh;
       display: flex;
@@ -43,31 +38,32 @@
       background: white;
       padding: 16px 20px 12px;
       border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .header-date { font-weight: 600; font-size: 1.1rem; }
     .header-date small { display: block; font-weight: 400; color: var(--text-muted); font-size: 0.7rem; }
-    .header-stats { display: flex; gap: 10px; }
-    .stat { font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+    .header-stats { display: flex; gap: 8px; }
+    .stat { font-size: 0.65rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
     .stat-cn { background: #FEF0EF; color: var(--china); }
     .stat-wd { background: #EEF5FA; color: var(--world); }
     /* 切换Tab */
     .tabs {
       display: flex;
       padding: 12px 20px 0;
-      gap: 12px;
+      gap: 10px;
       background: var(--bg);
       position: sticky;
       top: 60px;
       z-index: 9;
+      overflow-x: auto;
     }
     .tab {
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 20px;
       font-weight: 600;
       font-size: 0.8rem;
@@ -75,6 +71,7 @@
       border: 1px solid #E8E4DC;
       cursor: pointer;
       transition: 0.2s;
+      white-space: nowrap;
     }
     .tab.active {
       background: var(--china);
@@ -85,44 +82,113 @@
       background: var(--world);
       border-color: var(--world);
     }
-    /* 新闻列表 */
-    .news-list {
+    /* 新闻卡片区域 */
+    .news-grid {
       flex: 1;
       padding: 12px 16px 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .news-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
     }
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      display: flex;
-      padding: 14px;
-      gap: 14px;
-      transition: 0.2s;
-      border-left: 4px solid transparent;
-    }
-    .card.china-card { border-left-color: var(--china); }
-    .card.world-card { border-left-color: var(--world); }
-    .card-img {
-      width: 80px; height: 80px;
-      border-radius: 12px;
-      background: #f0eeea;
-      flex-shrink: 0;
       overflow: hidden;
-      object-fit: cover;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 4px solid var(--china);
     }
-    .card-content { flex: 1; min-width: 0; }
-    .card-title { font-weight: 600; font-size: 0.9rem; line-height: 1.4; margin-bottom: 4px; }
-    .card-summary { font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .card-meta { margin-top: 6px; display: flex; gap: 8px; align-items: center; }
-    .tag { font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .card.world-card {
+      border-top-color: var(--world);
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .card-img {
+      width: 100%;
+      height: 140px;
+      background: #f0eeea;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      position: relative;
+    }
+    .card-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .card-summary {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta {
+      margin-top: 10px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
     .tag-cn { background: #FEF0EF; color: var(--china); }
     .tag-wd { background: #EEF5FA; color: var(--world); }
     .tag-important { background: #FFF7E6; color: #B86E1A; }
-    .source { font-size: 0.6rem; color: var(--text-muted); }
+    .source {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+    /* 详情弹窗 */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000; visibility: hidden; opacity: 0; transition: 0.2s;
+    }
+    .modal-overlay.open { visibility: visible; opacity: 1; }
+    .modal {
+      background: white; border-radius: 20px; padding: 20px;
+      max-width: 90vw; max-height: 80vh; width: 500px; overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .modal img { width: 100%; border-radius: 12px; margin-bottom: 12px; }
+    .modal h2 { font-size: 1.2rem; margin-bottom: 8px; }
+    .modal p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+    .modal a { color: var(--world); text-decoration: underline; }
+    .close-btn {
+      float: right; background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; line-height: 1;
+    }
     /* 底部导航 */
     .nav {
       background: white;
@@ -132,16 +198,15 @@
       border-top: 1px solid #eee;
       position: sticky;
       bottom: 0;
+      z-index: 10;
     }
     .nav-item {
       display: flex; flex-direction: column; align-items: center; gap: 2px;
       font-size: 0.6rem; color: var(--text-muted); cursor: pointer;
+      transition: 0.2s;
     }
     .nav-item.active { color: var(--text); font-weight: 600; }
     .nav-icon { font-size: 1.3rem; }
-    /* 加载状态 */
-    .loading { text-align: center; padding: 40px; color: var(--text-muted); }
-    .empty { text-align: center; padding: 40px; color: var(--text-muted); }
   </style>
 </head>
 <body>
@@ -157,27 +222,30 @@
         <span class="stat stat-wd" id="wdCount">🌏 0条</span>
       </div>
     </div>
-    <!-- Tab 切换 -->
+    <!-- 顶部筛选Tab -->
     <div class="tabs">
-      <div class="tab active" id="tabAll" onclick="switchTab('all')">全部</div>
-      <div class="tab" id="tabCN" onclick="switchTab('china')">🇨🇳 中国</div>
-      <div class="tab world-tab" id="tabWD" onclick="switchTab('world')">🌏 世界</div>
+      <div class="tab active" data-tab="all">全部</div>
+      <div class="tab" data-tab="china">🇨🇳 中国</div>
+      <div class="tab world-tab" data-tab="world">🌏 世界</div>
     </div>
-    <!-- 新闻列表 -->
-    <div class="news-list" id="newsList">
-      <div class="loading">📰 正在加载今日心理学日报…</div>
-    </div>
-    <!-- 底部导航 -->
+    <!-- 新闻卡片网格 -->
+    <div class="news-grid" id="newsGrid"></div>
+    <!-- 底部导航（可点击切换Tab） -->
     <div class="nav">
-      <div class="nav-item active"><span class="nav-icon">📰</span>日报</div>
-      <div class="nav-item"><span class="nav-icon">🔍</span>发现</div>
-      <div class="nav-item"><span class="nav-icon">📅</span>活动</div>
-      <div class="nav-item"><span class="nav-icon">👤</span>我的</div>
+      <div class="nav-item active" data-nav="all"><span class="nav-icon">📰</span>全部</div>
+      <div class="nav-item" data-nav="china"><span class="nav-icon">🇨🇳</span>中国</div>
+      <div class="nav-item" data-nav="world"><span class="nav-icon">🌏</span>世界</div>
+      <div class="nav-item" data-nav="about"><span class="nav-icon">ℹ️</span>关于</div>
     </div>
   </div>
 
+  <!-- 详情弹窗 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
   <script>
-    // 日期显示
+    // ========== 工具函数 ==========
     function updateDateDisplay() {
       const now = new Date();
       const y = now.getFullYear();
@@ -189,57 +257,60 @@
     }
     updateDateDisplay();
 
+    // 生成占位图（背景色+心理学emoji）
+    function placeholderImage(region) {
+      const colors = region === 'china' ? ['#FCE4E3','#F9DEDC','#F5D0D0'] : ['#DCE9F3','#C5D9EA','#B0C9DE'];
+      const emojis = ['🧠','📖','🔬','💡','📊','🧩'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+      return `<div style="background:${color};width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">${emoji}</div>`;
+    }
+
+    // ========== 数据加载与渲染 ==========
     let allNews = [];
     let currentTab = 'all';
 
-    // 加载 news.json
     async function loadNews() {
       try {
-        const response = await fetch('news.json?' + Date.now()); // 避免缓存
+        const response = await fetch('news.json?' + Date.now());
         const data = await response.json();
         allNews = data.news || [];
         renderNews();
       } catch (e) {
-        document.getElementById('newsList').innerHTML = '<div class="empty">⚠️ 日报加载失败，请检查网络或稍后重试</div>';
+        document.getElementById('newsGrid').innerHTML = '<p style="text-align:center;padding:40px;">⚠️ 日报加载失败，请检查网络</p>';
         console.error(e);
       }
     }
 
     function renderNews() {
-      const list = document.getElementById('newsList');
+      const grid = document.getElementById('newsGrid');
       if (!allNews.length) {
-        list.innerHTML = '<div class="empty">📭 今日暂无心理学新闻</div>';
+        grid.innerHTML = '<p style="text-align:center;padding:40px;">📭 今日暂无心理学新闻</p>';
         updateCounts();
         return;
       }
-
-      const filtered = currentTab === 'china' 
-        ? allNews.filter(n => n.region === 'china')
-        : currentTab === 'world' 
-          ? allNews.filter(n => n.region === 'world')
-          : allNews;
-
+      const filtered = currentTab === 'china' ? allNews.filter(n => n.region === 'china')
+                     : currentTab === 'world' ? allNews.filter(n => n.region === 'world')
+                     : allNews;
       if (!filtered.length) {
-        list.innerHTML = '<div class="empty">📭 该分区暂无新闻</div>';
-        updateCounts(filtered.length, currentTab !== 'all' ? currentTab : 'all');
+        grid.innerHTML = '<p style="text-align:center;padding:40px;">📭 该分类暂无新闻</p>';
+        updateCounts();
         return;
       }
-
-      list.innerHTML = filtered.map(news => `
-        <div class="card ${news.region === 'china' ? 'china-card' : 'world-card'}">
-          <img class="card-img" src="${news.image || 'https://placehold.co/160x160/f0eeea/8a8276?text=Psych%F0%9F%A7%A0'}" alt="新闻配图" onerror="this.onerror=null;this.src='https://placehold.co/160x160/f0eeea/8a8276?text=🧠';">
-          <div class="card-content">
+      grid.innerHTML = filtered.map((news, index) => `
+        <div class="card ${news.region === 'world' ? 'world-card' : ''}" onclick="openDetail('${index}')">
+          <div class="card-img">${news.image ? `<img src="${news.image}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML=placeholderImage('${news.region}');">` : placeholderImage(news.region)}</div>
+          <div class="card-body">
             <div class="card-title">${news.title}</div>
-            <div class="card-summary">${news.summary}</div>
+            <div class="card-summary">${news.summary || '暂无摘要'}</div>
             <div class="card-meta">
               <span class="tag ${news.region === 'china' ? 'tag-cn' : 'tag-wd'}">${news.region === 'china' ? '中国' : '世界'}</span>
               ${news.important ? '<span class="tag tag-important">重磅</span>' : ''}
-              <span class="source">${news.source}</span>
+              <span class="source">${news.source || ''}</span>
             </div>
           </div>
         </div>
       `).join('');
-
       updateCounts();
     }
 
@@ -250,18 +321,62 @@
       document.getElementById('wdCount').textContent = `🌏 ${wdCount}条`;
     }
 
-    function switchTab(tab) {
+    // ========== Tab 切换逻辑（顶部和底部联动） ==========
+    function setActiveTab(tab) {
       currentTab = tab;
-      document.getElementById('tabAll').classList.remove('active');
-      document.getElementById('tabCN').classList.remove('active');
-      document.getElementById('tabWD').classList.remove('active');
-      if (tab === 'all') document.getElementById('tabAll').classList.add('active');
-      else if (tab === 'china') document.getElementById('tabCN').classList.add('active');
-      else if (tab === 'world') document.getElementById('tabWD').classList.add('active');
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`.tab[data-tab="${tab}"]`)?.classList.add('active');
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelector(`.nav-item[data-nav="${tab}"]`)?.classList.add('active');
       renderNews();
     }
 
-    // 启动加载
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
+    });
+    document.querySelectorAll('.nav-item').forEach(nav => {
+      nav.addEventListener('click', () => {
+        const navTab = nav.dataset.nav;
+        if (navTab === 'about') {
+          alert('🧠 心理学日报 · 每日更新\n数据来源为公开学术新闻，仅供参考。');
+          return;
+        }
+        setActiveTab(navTab);
+      });
+    });
+
+    // ========== 卡片点击弹出详情 ==========
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    function openDetail(index) {
+      const filtered = currentTab === 'china' ? allNews.filter(n => n.region === 'china')
+                     : currentTab === 'world' ? allNews.filter(n => n.region === 'world')
+                     : allNews;
+      const news = filtered[index];
+      if (!news) return;
+      modalContent.innerHTML = `
+        <button class="close-btn" onclick="closeModal()">✕</button>
+        ${news.image ? `<img src="${news.image}" onerror="this.style.display='none';">` : ''}
+        <h2>${news.title}</h2>
+        <p>${news.summary || '暂无详细摘要'}</p>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">
+          ${news.source ? `<strong>来源：</strong>${news.source}<br>` : ''}
+          ${news.link ? `<a href="${news.link}" target="_blank">🔗 查看原文</a>` : ''}
+        </div>
+      `;
+      modalOverlay.classList.add('open');
+    }
+    function closeModal() {
+      modalOverlay.classList.remove('open');
+    }
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // 启动
     loadNews();
   </script>
 </body>
