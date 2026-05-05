@@ -1,0 +1,21 @@
+{
+  "updateDate": "2026-05-05",
+  "news": [
+    {
+      "region": "china",
+      "title": "彭聃龄先生逝世，享年91岁",
+      "summary": "著名心理学家、北京师范大学教授彭聃龄先生因病于2026年5月4日在新加坡逝世。",
+      "source": "北京师范大学",
+      "image": "",
+      "important": true
+    },
+    {
+      "region": "world",
+      "title": "PAT积极情绪治疗优于传统负性情绪治疗",
+      "summary": "发表于JAMA Network Open的RCT研究表明，积极情绪治疗显著改善抑郁。",
+      "source": "JAMA Network Open",
+      "image": "",
+      "important": false
+    }
+  ]
+}
