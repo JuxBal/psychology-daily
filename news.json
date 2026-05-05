@@ -3,474 +3,242 @@
   "news": [
     {
       "region": "china",
-      "title": "教育部部署开展第三个全国学生心理健康宣传教育月",
-      "summary": "以“培育学生积极心理品质”为主题，提升心理健康工作水平。",
-      "source": "教育部/湖北教育信息网",
-      "link": "https://www.e21.cn",
-      "important": true
-    },
-    {
-      "region": "china",
-      "title": "儿童青少年“五健”促进行动启动",
-      "summary": "国家卫健委等多部门联合发起，聚焦体重、视力、心理等五大健康领域。",
-      "source": "国家卫生健康委/未来网",
-      "link": "https://news.k618.cn",
-      "important": true
-    },
-    {
-      "region": "china",
-      "title": "山东13部门联合发文：中小学、幼儿园逐步配齐健康副校长",
-      "summary": "山东省印发儿童青少年“五健”促进行动计划，配齐健康副校长。",
-      "source": "山东省卫生健康委/山东宣传网",
-      "link": "https://www.sdxc.gov.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "山西省卫健委立夏时节发出健康建议",
-      "summary": "提出“环境-行为-认知”三位一体策略，优化睡眠，改善心理状态。",
-      "source": "山西省卫生健康委/中新网",
-      "link": "https://www.sx.chinanews.com.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "国家下达11.99亿元支持云南医疗卫生服务体系建设",
-      "summary": "资金支持地市级精神卫生等24个项目建设，强化心理健康服务。",
-      "source": "国家发展改革委/云南网",
-      "link": "https://society.yunnan.cn",
-      "important": false
-    },
-    {
-      "region": "china",
       "title": "25部门联合印发《健全社会心理服务体系和危机干预机制实施方案》",
-      "summary": "到2030年，80%以上村社设心理咨询室，健全心理服务体系。",
-      "source": "国家卫生健康委/华夏时报",
-      "link": "https://m.chinatimes.net.cn",
+      "summary": "明确到2030年健全覆盖全人群的社会心理服务体系和危机干预机制，部署5方面18项任务。",
+      "source": "国家卫生健康委",
+      "link": "https://ncmhc.org.cn/channel/newsinfo/8131",
       "important": true
     },
     {
       "region": "china",
-      "title": "《健全社会心理服务体系和危机干预机制实施方案》解读发布",
-      "summary": "国家心理健康中心解读方案，要求纳入平安中国、健康中国建设。",
+      "title": "教育部部署开展第3个全国学生心理健康宣传教育月活动",
+      "summary": "5月开展以“培育学生积极心理品质，全面推进健康学校建设”为主题的宣传教育月活动。",
+      "source": "教育部",
+      "link": "https://www.e21.cn/news/202605/t20260505_220000.shtml",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "国家心理健康中心发布《12356心理援助热线常用接听语境指引》",
+      "summary": "在第三届全国社会心理服务创新发展大会上发布热线接听指引，启动精神康复就业赋能项目。",
       "source": "国家心理健康和精神卫生防治中心",
-      "link": "https://ncmhc.org.cn",
+      "link": "https://www.ccmtv.cn/news/20260402_12356.shtml",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "全国统一心理援助热线“12356”5月1日起全面启用",
+      "summary": "全国统一使用12356心理援助热线，提供24小时免费心理咨询与危机干预服务。",
+      "source": "国家卫生健康委",
+      "link": "https://www.hbwmw.gov.cn/content/2026-04/21/content_1370008.html",
       "important": true
     },
     {
       "region": "china",
-      "title": "2026年政府工作报告提出促进学生身心健康全面发展",
-      "summary": "加强体育、美育、劳动教育和心理健康教育，健全协同育人机制。",
-      "source": "国务院/珠海文明网",
-      "link": "https://gdzh.wenming.cn",
+      "title": "中国心理学会发布《中小学校心理健康测评服务指南》团体标准",
+      "summary": "首个该领域团体标准发布，为中小学心理健康测评提供统一规范。",
+      "source": "中国心理学会",
+      "link": "https://www.cpsbeijing.org/cms/show.action?code=publish_402880766305a05d016305ffc2710078&siteid=100000&newsid=640d231f0d3f482ea669939666f7422e&channelid=0000000036",
       "important": false
     },
     {
       "region": "china",
-      "title": "清华大学谢超课题组在《Nature Mental Health》发表精神疾病共病研究",
-      "summary": "提出外化与内化行为共病的层级神经认知模型。",
-      "source": "清华大学心理与认知科学系",
-      "link": "https://www.pcs.tsinghua.edu.cn",
-      "important": true
-    },
-    {
-      "region": "china",
-      "title": "山东大学团队在精神障碍流行病学领域取得系列进展",
-      "summary": "成果发表于《PLOS Medicine》等期刊，助力早期识别与精准干预。",
-      "source": "山东大学公共卫生学院",
-      "link": "https://jnmh.cn",
+      "title": "中国心理学会发布《学校心理健康教师专业能力标准》与《学校心理工作伦理守则》",
+      "summary": "系统回答心理教师资质与能力要求，划定学校心理工作边界与底线。",
+      "source": "中国心理学会",
+      "link": "https://xlzx.cqnu.edu.cn/nr.jsp?urltype=news.NewsContentUrl&wbtreeid=1446&wbnewsid=8970",
       "important": false
     },
     {
       "region": "china",
-      "title": "大规模流行病学调查揭示城乡儿童心理健康差异",
-      "summary": "研究发表于《Pediatric Investigation》，分析19711名6-16岁学生。",
-      "source": "《Pediatric Investigation》期刊",
-      "link": "https://www.eurekalert.org",
+      "title": "第三届全国社会心理服务创新发展大会在南京召开",
+      "summary": "以“十五五心启航”为主题，2500余人参会，发布多项心理健康服务成果。",
+      "source": "国家心理健康和精神卫生防治中心",
+      "link": "https://js.news.cn/2026-03/26/c_1313738082.html",
       "important": false
     },
     {
       "region": "china",
-      "title": "中国大学生抑郁及阈下抑郁患病率与决定因素研究发表",
-      "summary": "发表于《Frontiers in Psychiatry》，探究大学生生活环境与抑郁关系。",
-      "source": "《Frontiers in Psychiatry》期刊",
-      "link": "https://wnmc.xuezheku.com",
+      "title": "智能时代的临床与咨询心理学论坛在华中师范大学举办",
+      "summary": "中国心理学会主办论坛，探讨AI时代临床与咨询心理学的发展与挑战。",
+      "source": "中国心理学会",
+      "link": "https://www.cpsbeijing.org/cms/show.action?code=publish_402880...",
       "important": false
     },
     {
       "region": "china",
-      "title": "中国社区成人精神卫生服务利用及其影响因素研究",
-      "summary": "基于中国精神卫生调查数据，分析社区成人服务利用情况。",
-      "source": "昆明医科大学",
-      "link": "https://ir.kmmu.edu.cn",
+      "title": "《心理学报》发表王天鸿课题组群体利他促进利他炫耀研究",
+      "summary": "10项子研究发现群体利他可缓解利他炫耀心理冲突，提出内外动机协同双路径框架。",
+      "source": "心理学报（中国心理学会/中国科学院心理研究所）",
+      "link": "http://zxxnew.ahu.edu.cn/2026/0311/c15538a386996/page.htm",
       "important": false
     },
     {
       "region": "china",
-      "title": "不确定性不容忍与中国大学生自杀意念研究",
-      "summary": "发表于《Frontiers in Psychology》，探究非自杀性自伤的中介作用。",
-      "source": "《Frontiers in Psychology》期刊",
-      "link": "https://www.frontiersin.org",
+      "title": "《心理学报》发表大语言模型干预网络欺凌受害者心理韧性研究",
+      "summary": "以自尊自悯为靶点，验证大语言模型对网络欺凌受害者心理韧性的干预效果。",
+      "source": "心理学报（中国心理学会/中国科学院心理研究所）",
+      "link": "https://journal.psych.ac.cn/xlxb/CN/10.3724/SP.J.1041.2026.011",
       "important": false
     },
     {
       "region": "china",
-      "title": "北大甘怡群教授荣获国际应用心理学会杰出科学贡献奖",
-      "summary": "2026年度奖项，颁奖典礼将于7月在意大利佛罗伦萨举行。",
+      "title": "《心理学报》发表父母严厉管教与儿童情绪管理动态双向关系研究",
+      "summary": "基于随机截距交叉滞后模型揭示父母严厉管教与儿童情绪管理的双向影响机制。",
+      "source": "心理学报（中国心理学会/中国科学院心理研究所）",
+      "link": "https://journal.psych.ac.cn/xlxb/CN/10.3724/SP.J.1041.2026.010",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "北京大学心理与认知科学学院发布“北大心理百年”标识",
+      "summary": "北大心理百年庆典主题为“见心·见人·见时代”，院庆系列活动全面启动。",
       "source": "北京大学心理与认知科学学院",
-      "link": "https://pkunews.lb.pku.edu.cn",
+      "link": "https://www.psy.pku.edu.cn/xwzx/xyxw/29be2b9bf08f4dfa8ab25fbceb8a4b2c.htm",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "方方教授团队获批国家重点研发计划心理健康双向脑机交互系统项目",
+      "summary": "“大模型与认知机理协同的心理健康双向脑机交互系统”获批国重专项立项。",
+      "source": "北京大学心理与认知科学学院",
+      "link": "https://www.psy.pku.edu.cn/xwzx/xyxw/fangfang20260205.html",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "中国成人精神障碍终生患病率16.57%：首个全国流行病学调查",
+      "summary": "心境障碍和焦虑障碍患病率约7.6%（约8000万人），老年期痴呆呈上升趋势。",
+      "source": "北京大学第六医院/柳叶刀-精神病学",
+      "link": "https://5g.dahe.cn/news/20190301454576",
       "important": true
     },
     {
       "region": "china",
-      "title": "中科院心理所博士生任倩获精神分裂症国际研究学会早期职业奖",
-      "summary": "在SIRS大会上获颁奖项，展示小脑在精神分裂症序列预测中的作用。",
-      "source": "中国科学院心理研究所",
-      "link": "https://www.psych.cas.cn",
+      "title": "BMC Psychology发表中国大学生未来时间视角与抑郁关系研究",
+      "summary": "情绪智力中介未来时间视角与抑郁的关联，体育锻炼调节该中介路径。",
+      "source": "BMC Psychology",
+      "link": "https://read.qxmd.com/read/42067909/effects-of-future-time-perspective-on-depression-in-college-students-the-mediating-role-of-emotional-intelligence-and-moderating-role-of-physical-exercise",
       "important": false
     },
     {
       "region": "china",
-      "title": "第八届崇德学术论坛第一轮会议通知发布",
-      "summary": "将于10月在陕西师大举行，推动中国心理学自主知识体系建设。",
-      "source": "陕西师范大学心理学院",
-      "link": "https://psych.snnu.edu.cn",
+      "title": "Pediatric Investigation发表中国青少年城乡心理健康差异研究",
+      "summary": "19711名6-16岁学生网络分析显示：农村儿情绪问题多，城市儿行为问题突出。",
+      "source": "Pediatric Investigation (首都医科大学北京儿童医院)",
+      "link": "https://www.eurekalert.org/news-releases/1125133",
       "important": false
     },
     {
       "region": "china",
-      "title": "第三届全国社会心理服务创新发展大会在南京举行",
-      "summary": "以“十五五心启航”为主题，推动社会心理服务体系建设。",
-      "source": "国家心理健康和精神卫生防治中心",
-      "link": "https://ncmhc.org.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "中国心理卫生协会CBT专业委员会2026学术年会在芜湖开幕",
-      "summary": "全国91位CBT领域权威专家与一线工作者齐聚，共襄学术盛会。",
-      "source": "中国心理卫生协会/新京报",
-      "link": "https://www.bjnews.com.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "彭凯平教授新书《你好，心青年！》面世",
-      "summary": "清华H+Lab十周年庆典上首发，融合积极心理学与青年成长。",
-      "source": "清华大学出版社",
-      "link": "https://www.epuber.com",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "罗清军新作《生命的流动》正式出版",
-      "summary": "提出“流动停滞综合征”概念及“五维流动共生模型”。",
-      "source": "网易",
-      "link": "https://www.163.com",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "清华H+Lab十周年庆典举行，彭凯平新书首发",
-      "summary": "邱显清指出新书将积极心理学与青年成长深度融合。",
-      "source": "中国出版传媒商报",
-      "link": "https://www.cbbr.com.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "“中国认知与心理健康地图”科学计划启动",
-      "summary": "建立全国大型前瞻性队列，绘制动态认知与心理健康地图。",
-      "source": "中国认知与心理健康地图项目",
-      "link": "https://cpm010.org.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "全国学生心理健康宣传教育月将启动，重点培训教师识别心理问题",
-      "summary": "面向班主任等开展培训，优化学校心理健康服务。",
-      "source": "教育部/湖北教育信息网",
-      "link": "https://www.e21.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "徐凯文：人工智能时代，更需要保护孩子的心灵",
-      "summary": "在湛庐CHEERS2026全民阅读周大会上发表主题演讲。",
-      "source": "新京报",
-      "link": "https://www.bjnews.com.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "上海交通大学2026心理学科高峰论坛暨专题讲座举行",
-      "summary": "设置四大专题板块，邀请全国23位知名学者深度分享。",
-      "source": "上海交通大学",
-      "link": "https://news.sjtu.edu.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "刘俊升教授主讲“新智库沙龙”第101期",
-      "summary": "系统梳理发展心理学脉络，从皮亚杰到动态系统理论。",
-      "source": "上海社会科学院",
-      "link": "https://is.sass.org.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "“国心论健”院士院长院校圆桌对话会在南京举行",
-      "summary": "探讨构建全方位、全周期的国民心理健康防护网。",
-      "source": "国家心理健康和精神卫生防治中心",
-      "link": "https://ncmhc.org.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "付强：心理服务转向这道“必答题”，由谁来做？",
-      "summary": "探讨心理健康服务从概念确立到体系搭建再到功能升级的演进脉络。",
-      "source": "国家心理健康和精神卫生防治中心",
-      "link": "https://ncmhc.org.cn",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "心理学自主知识体系构建的特殊性与普遍性探讨",
-      "summary": "提出中国心理学需直面“内卷”“躺平”等当下社会心理问题。",
-      "source": "中国社会科学网",
-      "link": "https://www.cssn.cn",
+      "title": "中国后疫情时代青少年网络成瘾与心理健康关联研究",
+      "summary": "8176名中学生调查显示网络成瘾率19.37%，与抑郁焦虑水平显著正相关。",
+      "source": "BMC Psychology (郑州大学)",
+      "link": "https://visualize.jove.com/42067957-association-between-internet-addiction-and-mental-health-problems-among-chinese-adolescents-in-the-post-covid-19-pandemic-era-a-propensity-score-matching-study",
       "important": false
     },
     {
       "region": "world",
-      "title": "WHO呼吁各国改革精神卫生政策，发布新指南",
-      "summary": "新指南指出精神卫生服务资金不足，提出五大关键政策改革领域。",
-      "source": "世界卫生组织",
-      "link": "https://ugandaradionetwork.net",
+      "title": "社交媒体使用增加青少年抑郁风险：超36万人国际元分析",
+      "summary": "发表于JAMA Pediatrics，证实数字平台使用时长与青少年抑郁、焦虑、自残风险持续关联。",
+      "source": "JAMA Pediatrics",
+      "link": "https://www.163.com/dy/article/KS680C5M05346RC6.html",
       "important": true
     },
     {
       "region": "world",
-      "title": "WHO呼吁减少精神科强迫措施，推广替代方案",
-      "summary": "在摩尔多瓦举办活动，支持该国精神卫生系统改革。",
-      "source": "世界卫生组织",
-      "link": "https://logos-pres.md",
+      "title": "JAMA Network Open：积极情绪治疗优于消极情绪治疗抑郁症",
+      "summary": "RCT显示PAT在改善临床状态上显著优于NAT，快感缺乏患者获益尤其明显。",
+      "source": "JAMA Network Open (Southern Methodist University)",
+      "link": "https://www.medscape.com/viewarticle/targeting-positive-vs-negative-emotions-may-improve-2026a1000e7m",
       "important": true
     },
     {
       "region": "world",
-      "title": "国际劳工组织报告：每年84万人死于工作相关心理社会风险",
-      "summary": "长时间工作、工作不稳定和职场骚扰等是主要原因。",
-      "source": "联合国/国际劳工组织",
-      "link": "https://www.theindependentghana.com",
+      "title": "JAMA Psychiatry：儿童焦虑抑郁的两条遗传通路首次识别",
+      "summary": "研究发表两条独立遗传途径分别影响童年发病与青少年发病的焦虑抑郁。",
+      "source": "JAMA Psychiatry",
+      "link": "https://med.news.am/news/2026/05/04/scientists-identify-two-genetic-pathways-for-the-development-of-anxiety-and-depression-in-children",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "JAMA：半数老年痴呆患者使用精神药物一年后仍在服用",
+      "summary": "抗精神病药和苯二氮䓬类药物在急性护理环境中的处方比例远高于门诊。",
+      "source": "JAMA Network Open (UCLA)",
+      "link": "https://medicaldialogues.in/neurology-neurosurgery/news/half-of-elderly-with-dementia-remain-on-psychotropic-drugs-a-year-after-starting-on-them-jama-169952",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "Nature Communications：脑能量景观时空不对称性揭示抑郁严重度",
+      "summary": "研究发现脑能量景观的系统性捕捉与抑郁严重程度相关，提供神经影像新生物标记。",
+      "source": "Nature Communications",
+      "link": "https://www.nature.com/articles/s41467-026-...",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "Nature Communications：EEG解码揭示抑郁与自杀情感语义神经动态改变",
+      "summary": "抑郁及自杀意念者在情绪语句加工中表现出更早、更强、更持久的神经解码响应。",
+      "source": "Communications Biology (Nature)",
+      "link": "https://psychiatryai.com/time-resolved-eeg-decoding-reveals-altered-neural-dynamics-of-affective-semantic-evaluation-in-depression-and-suicidality/",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "Lancet Psychiatry：围产期重度抑郁全球患病率系统综述",
+      "summary": "约6.8%妇女在产后一年内患MDD，产后2周达峰值8.3%，呼吁加强筛查。",
+      "source": "The Lancet Psychiatry",
+      "link": "https://www.scimex.org/news/around-one-in-15-women-experience-major-depressive-disorder-in-the-year-after-childbirth",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "Nature评论呼吁APA对社交媒体成瘾采取更明确的行动",
+      "summary": "Dar Meshi在Nature发表评论，呼吁美国精神医学学会正视社交媒体成瘾概念。",
+      "source": "Nature (Michigan State University)",
+      "link": "https://comartsci.msu.edu/news/dar-meshi-publishes-nature-commentary-social-media-addiction",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "第26届世界精神医学大会(WCP)2026年9月将在斯德哥尔摩召开",
+      "summary": "主题“以慈悲为导，以科学为基”，摘要提交截止2026年3月23日。",
+      "source": "World Psychiatric Association",
+      "link": "https://psy.fi/event/wcp-23-2692026/",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "2026年APA年会将于8月6-8日在华盛顿举行",
+      "summary": "主题涵盖学校心理学、人格与社会心理学等，分会场提案征集已截止。",
+      "source": "American Psychological Association",
+      "link": "https://convention.apa.org/",
+      "important": false
+    },
+    {
+      "region": "world",
+      "title": "ILO报告：每年超84万人死于工作相关心理社会风险",
+      "summary": "长工时、工作不安全感、职场骚扰是主因，联合国呼吁全球加强职场心理健康。",
+      "source": "International Labour Organization (United Nations)",
+      "link": "https://theindependentghana.com/work-is-killing-840000-people-a-year-and-stress-is-mainly-the-cause-un-report-finds/",
       "important": true
     },
     {
       "region": "world",
-      "title": "WHO发布被忽视热带病患者精神卫生与病耻感基本护理包",
-      "summary": "为政府及一线工作者提供循证干预指南，处理心理压力与病耻感。",
-      "source": "世界卫生组织",
-      "link": "https://www.lstmed.ac.uk",
+      "title": "WHO发布“Saving lives, spending less”报告呼吁投资心理健康",
+      "summary": "每人每年仅需额外投资3美元应对NCDs，到2030年可带来1万亿美元经济收益。",
+      "source": "World Health Organization",
+      "link": "https://epinews.emphnet.net/who-urges-cost-effective-solutions-on-ncds-and-mental-health-amidst-slowing-progress/",
       "important": false
     },
     {
       "region": "world",
-      "title": "WHO与UNICEF制定2026-2030年儿童青少年健康战略",
-      "summary": "强调预防性福祉，关注儿童青少年心理健康与幸福感。",
-      "source": "世界卫生组织/联合国儿童基金会",
-      "link": "https://globalwellnessinstitute.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "世界领袖通过关于非传染性疾病和精神卫生的历史性全球宣言",
-      "summary": "设定2030年可衡量目标，包括扩大精神卫生保健覆盖面。",
-      "source": "联合国",
-      "link": "https://gazettengr.com",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "《世界幸福报告2026》发布：社交媒体重度使用侵蚀青少年幸福感",
-      "summary": "报告覆盖140国近10万受访者，英语国家未进入前十名。",
-      "source": "牛津大学幸福研究中心/盖洛普",
-      "link": "https://www.britannica.com",
-      "important": true
-    },
-    {
-      "region": "world",
-      "title": "联合国经社部发布《世界青年报告》聚焦心理健康",
-      "summary": "强调制定兼具包容性与青年视角的心理健康政策。",
-      "source": "联合国经济和社会事务部",
-      "link": "https://www.wydf.org.cn",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "Nature发表跨14种精神障碍遗传图谱研究",
-      "summary": "揭示精神分裂症与双相障碍共享大部分遗传信号，挑战诊断界限。",
-      "source": "《Nature》期刊",
-      "link": "https://knowledgeconnection.mainehealth.org",
-      "important": true
-    },
-    {
-      "region": "world",
-      "title": "JAMA Psychiatry发表气候相关与自然基础心理健康干预伞状综述",
-      "summary": "对气候相关心理健康干预进行Meta分析，评估干预效果。",
-      "source": "《JAMA Psychiatry》期刊",
-      "link": "https://psychiatryai.com",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "JAMA Network Open发表积极情感治疗抑郁焦虑随机临床试验",
-      "summary": "评估积极情感治疗对抑郁、焦虑及低积极情感的疗效。",
-      "source": "《JAMA Network Open》期刊",
-      "link": "https://psychiatryai.com",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "《Nature Mental Health》发表精神病预测加工解释研究",
-      "summary": "探讨自下而上与自上而下中断对精神病症状的影响。",
-      "source": "《Nature Mental Health》期刊",
-      "link": "https://ouci.dntb.gov.ua",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "多国30余名专家呼吁对AI在心理健康领域的应用加强监管",
-      "summary": "担心AI情感支持工具潜在风险，呼吁采取紧急全球行动。",
-      "source": "国际专家联合声明/Pharma News",
-      "link": "https://pharmanewsonline.com",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "Hazel Rose Markus荣获2026年Sage-CASBS奖",
-      "summary": "斯坦福大学CASBS颁奖，5月7日举行免费公开讲座。",
-      "source": "Sage出版公司/斯坦福大学CASBS",
-      "link": "https://www.sagepub.com",
-      "important": true
-    },
-    {
-      "region": "world",
-      "title": "APS公布2026年Janet Taylor Spence奖获奖者",
-      "summary": "表彰在心理科学领域做出变革性贡献的早期职业研究人员。",
-      "source": "美国心理科学协会（APS）",
-      "link": "https://www.psychologicalscience.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "美国国家科学院颁发2026年Troland研究奖",
-      "summary": "普林斯顿大学和斯坦福大学两位学者获奖，表彰其在认知心理学领域的贡献。",
-      "source": "美国国家科学院",
-      "link": "https://www.nasonline.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "美国国家科学院颁发2026年Atkinson心理与认知科学奖",
-      "summary": "华盛顿大学与达特茅斯学院两位学者分享10万美元奖金。",
-      "source": "美国国家科学院",
-      "link": "https://www.nasonline.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "APS公布2026年William James Fellow奖获得者",
-      "summary": "表彰在心理学基础科学领域做出终身贡献的学者。",
-      "source": "美国心理科学协会（APS）",
-      "link": "https://www.psychologicalscience.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "第31届国际应用心理学大会（ICAP 2026）将在佛罗伦萨举行",
-      "summary": "探讨应用心理学最新进展及如何促进个人与社会积极变革。",
-      "source": "国际应用心理学协会",
-      "link": "https://www.efpa.eu",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "世界认知行为治疗大会（WCCBT）将于旧金山举行",
-      "summary": "2026年6月举行，展示跨文化、跨群体的一流研究与工作坊。",
-      "source": "世界认知与行为治疗联盟",
-      "link": "https://wccbt.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "第27届国际儿童青少年精神病学协会世界大会将在汉堡举行",
-      "summary": "聚焦儿童青少年心理健康，提交摘要截止日期已确定。",
-      "source": "国际儿童青少年精神病学协会",
-      "link": "https://www.iacapap.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "新加坡应用心理学大会（SCAP2026）将于12月举行",
-      "summary": "主题为“心理福祉”，线上线下同步进行。",
-      "source": "东亚研究（East Asia Research）",
-      "link": "https://www.inicop.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "2026年心理健康趋势：从终身脑健康到数字干预",
-      "summary": "全球健康研究所发布趋势报告，涵盖神经科学进展等。",
-      "source": "全球健康研究所",
-      "link": "https://globalwellnessinstitute.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "美国心理学协会发布2026年心理学九大趋势",
-      "summary": "涵盖综合护理、AI工具、职场健康、青少年心理健康等。",
-      "source": "美国心理学协会（APA）",
-      "link": "https://www.apa.org",
-      "important": true
-    },
-    {
-      "region": "world",
-      "title": "Richard Wiseman在BPS撰文：心理学需要“魅力革命”",
-      "summary": "赫特福德大学教授认为心理学正面临“乏味危机”。",
-      "source": "英国心理学会（BPS）",
-      "link": "https://www.bps.org.uk",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "Jia F在《Frontiers in Psychology》发表文化心理学前沿观点",
-      "summary": "探讨全球思维与本地情境下的文化心理学重大挑战与机遇。",
-      "source": "《Frontiers in Psychology》期刊",
-      "link": "https://www.frontiersin.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "APA出版新书：ACT治疗实用指南",
-      "summary": "赋能新老临床医生提升接纳与承诺治疗技能。",
-      "source": "美国心理学协会（APA）",
-      "link": "https://www.apa.org",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "牛津大学出版社推出新书《无知心理学》",
-      "summary": "探讨无知的心理机制，预计2026年5月出版。",
-      "source": "牛津大学出版社",
-      "link": "https://preview.global.oup.com",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "新书《Governing Global Emotions》出版",
-      "summary": "探讨数字技术如何定义、使用和治理情绪。",
-      "source": "De Gruyter Brill出版社",
-      "link": "https://www.degruyterbrill.com",
+      "title": "WHO数据显示全球超10亿人生活在精神健康障碍中",
+      "summary": "焦虑和抑郁为主要障碍类型，对人类痛苦和经济成本均构成重大挑战。",
+      "source": "World Health Organization",
+      "link": "https://ugandaradionetwork.net/over-1-billion-people-living-with-mental-health-disorders-who-warns/",
       "important": false
     }
   ]
