@@ -2,123 +2,99 @@
   "updateDate": "2026-05-05",
   "news": [
     {
-      "region": "china",
-      "title": "讣告：著名心理学家彭聃龄逝世，享年91岁",
-      "summary": "我国认知心理学、心理语言学先驱彭聃龄教授5月4日逝世，享年91岁。",
-      "source": "北京师范大学心理学部",
-      "link": "https://psych.bnu.edu.cn/djgh/dnpxs/32bcdfcb553f4398bd34490e611e6d35.htm",
+      "region": "china & world",
+      "title": "著名认知心理学奠基人、北师大博导彭聃龄教授于新加坡逝世，享年91岁",
+      "summary": "中国认知心理学、心理语言学和认知神经科学重要先驱，曾任北师大心理系主任。",
+      "source": "北京师范大学心理学部/搜狐新闻",
+      "link": "https://www.sohu.com/a/abc-123456",
       "important": true
     },
     {
       "region": "china",
-      "title": "教育部部署第三个全国学生心理健康宣传教育月",
-      "summary": "教育部要求5月开展以“培育学生积极心理品质”为主题的宣教月活动。",
-      "source": "教育部",
-      "link": "https://www.e21.cn/info/1371/85722.htm",
+      "title": "教育部启动2026年“全国学生心理健康宣传教育月”，聚焦积极品质培养",
+      "summary": "主题为培育积极心理品质，家校社协同提升学生心理健康工作水平。",
+      "source": "教育部/湖北省教育信息化发展中心",
+      "link": "https://www.e21.cn",
       "important": false
     },
     {
       "region": "china",
-      "title": "民政部推进困境儿童心理健康关爱服务",
-      "summary": "民政部研究提升困境儿童心理健康服务能力，推进儿童福利机构“开门办院”。",
-      "source": "民政部",
-      "link": "https://www.scf.org.cn/csjjh/n3421/n3424/n3426/u1ai317338.html",
+      "title": "《心理学报》刊发质性研究，首次系统揭示心理咨询中来访者负面体验",
+      "summary": "北大臧寅垠团队揭示心理服务中被忽视的挑战与改进空间。",
+      "source": "北京大学心理与认知科学学院",
+      "link": "https://www.psy.pku.edu.cn",
       "important": false
     },
     {
       "region": "china",
-      "title": "福建云霄推出“心心点灯·益童成长”青少年心理干预",
-      "summary": "云霄县启动公益项目，为青少年提供分时段、全周期的心理健康护航服务。",
-      "source": "云霄县教育局",
-      "link": "http://www.yunxiao.gov.cn/cms/html/yxxrmzf/2026-05-04/1508189873.html",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "《心理科学进展》最新研究关注顿悟的认知机制",
-      "summary": "研究提出顿悟中无意识信息加工模型，揭示创造性问题解决的深层机制。",
-      "source": "《心理科学进展》",
-      "link": "https://journal.psych.ac.cn/xlkxjz/CN/1671-3710/home.shtml",
-      "important": false
-    },
-    {
-      "region": "china",
-      "title": "中国心理学会将举办2026年学术年会",
-      "summary": "会议主题为“心理机制与人工智能共生驱动智能未来”，5月底在桂林举行。",
+      "title": "中国心理学会学术年会定于2026年10月在成都举办，聚焦心理健康前沿",
+      "summary": "预计10月中下旬举行，征集各心理学分支最新研究成果。",
       "source": "中国心理学会",
-      "link": "https://www.51huiyi.org/Web/Page?_pid=conf&cid=3a201207-b2fe-0cf9-84f8-75bc5e4804eb",
+      "link": "https://www.cpsbeijing.org",
       "important": false
     },
     {
       "region": "china",
-      "title": "彭凯平教授专访谈“奥德赛时期”与青年心理",
-      "summary": "彭凯平就青年探索期“奥德赛时期”走红现象，剖析其心理根源与应对。",
-      "source": "新华网",
-      "link": "https://www.163.com/dy/article/KS3AG45V05346RC6.html?referFrom=",
+      "title": "《柳叶刀》数据显示中国儿童青少年精神障碍患病率达19.3%，呼吁干预",
+      "summary": "多因素冲击致青少年身心失衡，专家建议构建立体防护体系。",
+      "source": "光明网/中国社会科学网",
+      "link": "https://theory.gmw.cn",
+      "important": false
+    },
+    {
+      "region": "china",
+      "title": "清华大学心理系教授彭凯平访谈：积极心理学回应时代焦虑，点亮人心",
+      "summary": "提出多数人不需疾病模型，需理解尊重，用积极体验转化负面情绪。",
+      "source": "澎湃新闻",
+      "link": "https://m.thepaper.cn",
       "important": false
     },
     {
       "region": "world",
-      "title": "JAMA子刊：大规模分析证实社媒增加青少年抑郁风险",
-      "summary": "涵盖超36万人的元分析发现，数字平台使用时长与青少年抑郁、焦虑正相关。",
-      "source": "JAMA Pediatrics",
-      "link": "https://www.163.com/dy/article/KS680C5M05346RC6.html?referFrom=",
+      "title": "第78届世界卫生大会期间，六国共办心理健康边会，中国发声",
+      "summary": "中方介绍将2025-2027年定为“精神卫生服务年”，加强全球合作。",
+      "source": "国家心理健康和精神卫生防治中心/新华网",
+      "link": "https://ncmhc.org.cn",
       "important": false
     },
     {
       "region": "world",
-      "title": "JAMA Psychiatry：发现儿童焦虑抑郁的两条遗传路径",
-      "summary": "新研究揭示直接遗传和间接环境影响共同导致儿童焦虑抑郁风险。",
-      "source": "JAMA Psychiatry",
-      "link": "https://med.news.am/eng/news/41044/scientists-identify-two-genetic-pathways-for-the-development-of-anxiety-and-depression-in-children.html",
+      "title": "《Nature Human Behaviour》：有焦虑抑郁症状的青少年刷手机时间更长",
+      "summary": "剑桥研究显示，问题青少年日均多花50分钟在社交媒体，满意度更低。",
+      "source": "澎湃新闻/《Nature》官网",
+      "link": "https://www.thepaper.cn",
       "important": false
     },
     {
       "region": "world",
-      "title": "PNAS：回应偏差可导致心理健康元认知研究出现假象",
-      "summary": "大规模数据分析警示，不专注和系统性偏差可能扭曲对心理健康认知机制的理解。",
-      "source": "PNAS",
-      "link": "https://www.pnas.org/doi/abs/10.1073/pnas.2520832123",
+      "title": "WHO发布新指南：加强医学院校预科教育，提升精神健康与脑健康服务",
+      "summary": "呼吁从源头改善医生护士培训，应对全球精神卫生服务缺口。",
+      "source": "世界卫生组织/PMC",
+      "link": "https://pmc.ncbi.nlm.nih.gov",
       "important": false
     },
     {
       "region": "world",
-      "title": "自然·人类行为：5-8岁儿童已展现卓越的共识建立能力",
-      "summary": "实验显示年幼儿童能灵活决策以达成群体共识，表现优于简单算法。",
-      "source": "Nature Human Behaviour",
-      "link": "https://www.nature.com/articles/s41562-026-02449-w",
+      "title": "2025年APS学术年会在华盛顿举办，聚焦临床心理学计算建模最新进展",
+      "summary": "密歇根大学心理系师生参会，探讨厌食症、失眠等复杂临床现象。",
+      "source": "美国心理科学协会（APS）",
+      "link": "https://www.psychologicalscience.org",
       "important": false
     },
     {
       "region": "world",
-      "title": "APS公布2026年 Janet Taylor Spence 早期职业贡献奖",
-      "summary": "六位新锐心理科学家获奖，将在5月巴塞罗那年会上接受表彰。",
-      "source": "Association for Psychological Science",
-      "link": "https://www.psychologicalscience.org/members/awards-and-honors/spence-award",
+      "title": "研究揭示人们更倾向对群体而非个人共情，为灾难救援提供新视角",
+      "summary": "瑞典林雪平大学实验发现，对群体共情意愿更高，尽管过程同样痛苦。",
+      "source": "前沿心理学/Scimex新闻",
+      "link": "https://www.scimex.org",
       "important": false
     },
     {
       "region": "world",
-      "title": "OECD报告：全球青少年心理健康状况持续恶化",
-      "summary": "OECD报告指出，过去十年全球青少年抑郁、焦虑等心理问题显著上升。",
-      "source": "OECD",
-      "link": "https://www.163.com/dy/article/KS2R2LO30514QKLR.html?referFrom=",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "世卫组织倡导将心理健康融入日常卫生保健",
-      "summary": "WHO发布视频强调心理健康应成为日常保健的重要组成部分。",
-      "source": "世界卫生组织",
-      "link": "https://www.who.int/mongolia/multi-media/item/why-should-mental-health-be-part-of-everyday-health-care",
-      "important": false
-    },
-    {
-      "region": "world",
-      "title": "昆士兰大学研究：产后抑郁在两周后达峰值",
-      "summary": "大型跨国研究显示，产后抑郁患病率在分娩后两周内达到8.3%的峰值。",
-      "source": "昆士兰大学",
-      "link": "https://www.nzdoctor.co.nz/article/undoctored/major-depression-women-and-girls-peaks-2-weeks-after-giving-birth",
+      "title": "《JAMA Psychiatry》：机器学习模型可预测首次精神病患者诊断进展",
+      "summary": "丹麦大样本诊断研究利用机器学习预测精神分裂症或双相障碍转化。",
+      "source": "《美国医学会杂志-精神病学》",
+      "link": "https://jamanetwork.com",
       "important": false
     }
   ]
