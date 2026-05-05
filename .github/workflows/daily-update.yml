@@ -1,0 +1,27 @@
+name: Daily News Update
+on:
+  schedule:
+    - cron: '30 22 * * *'   # 北京时间早上6:30运行
+  workflow_dispatch:        # 允许手动触发
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run update script
+        run: python update_news.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add news.json
+          git diff --staged --quiet || (git commit -m "daily news update" && git push)
