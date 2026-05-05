@@ -14,7 +14,7 @@
       --china: #B5343E;
       --world: #1A5276;
       --shadow: 0 2px 10px rgba(0,0,0,0.04);
-      --radius: 16px;
+      --radius: 14px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -27,7 +27,7 @@
     }
     .app {
       width: 100%;
-      max-width: 700px; /* 适当放宽，减少留白 */
+      max-width: 680px;
       background: var(--bg);
       min-height: 100vh;
       display: flex;
@@ -51,7 +51,22 @@
     .stat { font-size: 0.65rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
     .stat-cn { background: #FEF0EF; color: var(--china); }
     .stat-wd { background: #EEF5FA; color: var(--world); }
-    /* 切换Tab */
+    .bookmark-header {
+      display: none;
+      background: white;
+      padding: 12px 20px;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .bookmark-header h2 { font-size: 1.2rem; font-weight: 700; flex: 1; }
+    .back-btn {
+      background: none; border: none; font-size: 1.2rem; cursor: pointer;
+      padding: 4px 8px; border-radius: 8px;
+    }
     .tabs {
       display: flex;
       padding: 12px 20px 0;
@@ -73,122 +88,78 @@
       transition: 0.2s;
       white-space: nowrap;
     }
-    .tab.active {
-      background: var(--china);
-      color: white;
-      border-color: var(--china);
-    }
-    .tab.world-tab.active {
-      background: var(--world);
-      border-color: var(--world);
-    }
-    /* 新闻卡片区域 */
-    .news-grid {
+    .tab.active { background: var(--china); color: white; border-color: var(--china); }
+    .tab.world-tab.active { background: var(--world); border-color: var(--world); }
+    .news-list {
       flex: 1;
       padding: 12px 16px 30px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    @media (min-width: 600px) {
-      .news-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-    }
+    /* 卡片 */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      padding: 16px;
+      border-left: 4px solid var(--china);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
-      border-top: 4px solid var(--china);
     }
-    .card.world-card {
-      border-top-color: var(--world);
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-    .card-img {
-      width: 100%;
-      height: 140px;
-      background: #f0eeea;
-      object-fit: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      position: relative;
-    }
-    .card-body {
-      padding: 14px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-title {
-      font-weight: 700;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    .card-summary {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      flex: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .card-meta {
-      margin-top: 10px;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-size: 0.6rem;
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-weight: 600;
-    }
+    .card.world-card { border-left-color: var(--world); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .card-title { font-weight: 700; font-size: 0.95rem; line-height: 1.4; margin-bottom: 6px; padding-right: 40px; }
+    .card-summary { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+    .card-meta { margin-top: 10px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .tag { font-size: 0.6rem; padding: 3px 8px; border-radius: 10px; font-weight: 600; }
     .tag-cn { background: #FEF0EF; color: var(--china); }
     .tag-wd { background: #EEF5FA; color: var(--world); }
     .tag-important { background: #FFF7E6; color: #B86E1A; }
-    .source {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-left: auto;
+    .source { font-size: 0.65rem; color: var(--text-muted); margin-left: auto; }
+    .no-link { color: var(--text-muted); font-size: 0.7rem; }
+    /* 收藏按钮 */
+    .fav-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none; border: none; font-size: 1.4rem; cursor: pointer;
+      z-index: 2; line-height: 1; transition: transform 0.2s;
     }
-    /* 详情弹窗 */
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 1000; visibility: hidden; opacity: 0; transition: 0.2s;
+    .fav-btn:active { transform: scale(1.3); }
+    /* 收藏管理 */
+    .bookmark-container { display: none; flex: 1; flex-direction: column; padding: 16px; }
+    .folder-bar {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
     }
-    .modal-overlay.open { visibility: visible; opacity: 1; }
-    .modal {
-      background: white; border-radius: 20px; padding: 20px;
-      max-width: 90vw; max-height: 80vh; width: 500px; overflow-y: auto;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    .folder-tag {
+      padding: 6px 14px; border-radius: 20px; background: #eee; font-size: 0.8rem;
+      cursor: pointer; border: 1px solid #ddd; font-weight: 500;
     }
-    .modal img { width: 100%; border-radius: 12px; margin-bottom: 12px; }
-    .modal h2 { font-size: 1.2rem; margin-bottom: 8px; }
-    .modal p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
-    .modal a { color: var(--world); text-decoration: underline; }
-    .close-btn {
-      float: right; background: none; border: none; font-size: 1.5rem;
-      cursor: pointer; line-height: 1;
+    .folder-tag.active { background: var(--world); color: white; border-color: var(--world); }
+    .folder-actions { display: flex; gap: 8px; margin-left: auto; }
+    .folder-action-btn {
+      background: white; border: 1px solid #ddd; border-radius: 8px; padding: 4px 10px;
+      font-size: 0.7rem; cursor: pointer;
     }
+    .bm-list { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+    .bm-item {
+      background: white; border-radius: 12px; padding: 14px; box-shadow: var(--shadow);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
+    }
+    .bm-content { flex: 1; min-width: 0; }
+    .bm-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+    .bm-meta { font-size: 0.7rem; color: var(--text-muted); }
+    .bm-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .bm-btn {
+      background: none; border: 1px solid #ddd; border-radius: 8px; padding: 4px 8px;
+      font-size: 0.7rem; cursor: pointer; white-space: nowrap;
+    }
+    .empty { text-align: center; padding: 40px; color: var(--text-muted); }
     /* 底部导航 */
     .nav {
       background: white;
@@ -202,17 +173,32 @@
     }
     .nav-item {
       display: flex; flex-direction: column; align-items: center; gap: 2px;
-      font-size: 0.6rem; color: var(--text-muted); cursor: pointer;
-      transition: 0.2s;
+      font-size: 0.6rem; color: var(--text-muted); cursor: pointer; transition: 0.2s;
     }
     .nav-item.active { color: var(--text); font-weight: 600; }
     .nav-icon { font-size: 1.3rem; }
+    /* 弹窗 */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;
+      z-index: 1000; visibility: hidden; opacity: 0; transition: 0.2s;
+    }
+    .modal-overlay.open { visibility: visible; opacity: 1; }
+    .modal {
+      background: white; border-radius: 20px; padding: 20px; max-width: 90vw; width: 360px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .modal h3 { margin-bottom: 12px; }
+    .modal input { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; }
+    .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .modal-actions button { padding: 6px 16px; border-radius: 8px; border: 1px solid #ddd; background: white; cursor: pointer; }
+    .modal-actions .primary { background: var(--world); color: white; border: none; }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- 头部 -->
-    <div class="header">
+    <!-- 新闻视图头部 -->
+    <div class="header" id="newsHeader">
       <div class="header-date">
         <span id="dateDisplay"></span>
         <small id="weekdayDisplay"></small>
@@ -222,30 +208,37 @@
         <span class="stat stat-wd" id="wdCount">🌏 0条</span>
       </div>
     </div>
-    <!-- 顶部筛选Tab -->
-    <div class="tabs">
+    <!-- 收藏视图头部 -->
+    <div class="bookmark-header" id="bookmarkHeader">
+      <button class="back-btn" id="backToNewsBtn">← 返回</button>
+      <h2>📂 我的收藏</h2>
+    </div>
+    <!-- 新闻分类Tab -->
+    <div class="tabs" id="newsTabs">
       <div class="tab active" data-tab="all">全部</div>
       <div class="tab" data-tab="china">🇨🇳 中国</div>
       <div class="tab world-tab" data-tab="world">🌏 世界</div>
     </div>
-    <!-- 新闻卡片网格 -->
-    <div class="news-grid" id="newsGrid"></div>
-    <!-- 底部导航（可点击切换Tab） -->
+    <!-- 新闻列表 -->
+    <div class="news-list" id="newsList"></div>
+    <!-- 收藏管理容器 -->
+    <div class="bookmark-container" id="bookmarkContainer"></div>
+    <!-- 底部导航 -->
     <div class="nav">
       <div class="nav-item active" data-nav="all"><span class="nav-icon">📰</span>全部</div>
       <div class="nav-item" data-nav="china"><span class="nav-icon">🇨🇳</span>中国</div>
       <div class="nav-item" data-nav="world"><span class="nav-icon">🌏</span>世界</div>
-      <div class="nav-item" data-nav="about"><span class="nav-icon">ℹ️</span>关于</div>
+      <div class="nav-item" data-nav="bookmarks"><span class="nav-icon">📂</span>收藏</div>
     </div>
   </div>
 
-  <!-- 详情弹窗 -->
+  <!-- 通用弹窗 -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="modalContent"></div>
   </div>
 
   <script>
-    // ========== 工具函数 ==========
+    // ========== 日期显示 ==========
     function updateDateDisplay() {
       const now = new Date();
       const y = now.getFullYear();
@@ -257,35 +250,47 @@
     }
     updateDateDisplay();
 
-    // 生成占位图（背景色+心理学emoji）
-    function placeholderImage(region) {
-      const colors = region === 'china' ? ['#FCE4E3','#F9DEDC','#F5D0D0'] : ['#DCE9F3','#C5D9EA','#B0C9DE'];
-      const emojis = ['🧠','📖','🔬','💡','📊','🧩'];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-      return `<div style="background:${color};width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">${emoji}</div>`;
+    // ========== 全局状态 ==========
+    let allNews = [];
+    let currentTab = 'all';
+    let currentView = 'news'; // 'news' 或 'bookmarks'
+
+    // ========== 收藏数据结构管理 ==========
+    const STORAGE_KEY = 'psychdaily_bookmarks';
+    function getBookmarksData() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+      // 默认结构
+      return { folders: [{ id: 'default', name: '默认文件夹' }], items: [] };
+    }
+    function saveBookmarksData(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    // ========== 新闻ID生成 ==========
+    function getNewsId(news) {
+      return btoa(encodeURIComponent(news.title + (news.source || '') + (news.link || ''))).substring(0, 32);
     }
 
     // ========== 数据加载与渲染 ==========
-    let allNews = [];
-    let currentTab = 'all';
-
     async function loadNews() {
       try {
         const response = await fetch('news.json?' + Date.now());
         const data = await response.json();
         allNews = data.news || [];
-        renderNews();
+        if (currentView === 'news') renderNews();
+        updateCounts();
       } catch (e) {
-        document.getElementById('newsGrid').innerHTML = '<p style="text-align:center;padding:40px;">⚠️ 日报加载失败，请检查网络</p>';
-        console.error(e);
+        if (currentView === 'news') {
+          document.getElementById('newsList').innerHTML = '<div class="empty">⚠️ 日报加载失败，请稍后重试</div>';
+        }
       }
     }
 
     function renderNews() {
-      const grid = document.getElementById('newsGrid');
+      const list = document.getElementById('newsList');
       if (!allNews.length) {
-        grid.innerHTML = '<p style="text-align:center;padding:40px;">📭 今日暂无心理学新闻</p>';
+        list.innerHTML = '<div class="empty">📭 今日暂无心理学新闻</div>';
         updateCounts();
         return;
       }
@@ -293,14 +298,19 @@
                      : currentTab === 'world' ? allNews.filter(n => n.region === 'world')
                      : allNews;
       if (!filtered.length) {
-        grid.innerHTML = '<p style="text-align:center;padding:40px;">📭 该分类暂无新闻</p>';
+        list.innerHTML = '<div class="empty">📭 该分类暂无新闻</div>';
         updateCounts();
         return;
       }
-      grid.innerHTML = filtered.map((news, index) => `
-        <div class="card ${news.region === 'world' ? 'world-card' : ''}" onclick="openDetail('${index}')">
-          <div class="card-img">${news.image ? `<img src="${news.image}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML=placeholderImage('${news.region}');">` : placeholderImage(news.region)}</div>
-          <div class="card-body">
+      const bmData = getBookmarksData();
+      const favIds = new Set(bmData.items.map(item => item.id));
+      list.innerHTML = filtered.map(news => {
+        const nid = getNewsId(news);
+        const isFav = favIds.has(nid);
+        const hasLink = news.link && news.link.startsWith('http');
+        return `
+          <div class="card ${news.region === 'world' ? 'world-card' : ''}" ${hasLink ? `onclick="window.open('${news.link}', '_blank')"` : ''}>
+            <button class="fav-btn" data-id="${nid}" data-title="${news.title.replace(/"/g, '&quot;')}" data-source="${news.source || ''}" data-link="${news.link || ''}" data-region="${news.region || ''}" onclick="event.stopPropagation(); toggleFav(this);">${isFav ? '❤️' : '🤍'}</button>
             <div class="card-title">${news.title}</div>
             <div class="card-summary">${news.summary || '暂无摘要'}</div>
             <div class="card-meta">
@@ -309,8 +319,8 @@
               <span class="source">${news.source || ''}</span>
             </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
       updateCounts();
     }
 
@@ -321,8 +331,37 @@
       document.getElementById('wdCount').textContent = `🌏 ${wdCount}条`;
     }
 
-    // ========== Tab 切换逻辑（顶部和底部联动） ==========
+    // ========== 收藏切换 ==========
+    function toggleFav(btn) {
+      const nid = btn.dataset.id;
+      const bmData = getBookmarksData();
+      const idx = bmData.items.findIndex(item => item.id === nid);
+      if (idx !== -1) {
+        // 取消收藏
+        bmData.items.splice(idx, 1);
+        saveBookmarksData(bmData);
+        btn.innerHTML = '🤍';
+      } else {
+        // 添加收藏，默认放入第一个文件夹（默认文件夹）
+        bmData.items.push({
+          id: nid,
+          title: btn.dataset.title,
+          source: btn.dataset.source,
+          link: btn.dataset.link,
+          region: btn.dataset.region,
+          folderId: bmData.folders[0]?.id || 'default',
+          timestamp: Date.now()
+        });
+        saveBookmarksData(bmData);
+        btn.innerHTML = '❤️';
+      }
+      // 如果当前在收藏视图，重新渲染
+      if (currentView === 'bookmarks') renderBookmarks();
+    }
+
+    // ========== 视图切换 ==========
     function setActiveTab(tab) {
+      if (currentView !== 'news') switchToNewsView();
       currentTab = tab;
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`.tab[data-tab="${tab}"]`)?.classList.add('active');
@@ -331,52 +370,193 @@
       renderNews();
     }
 
+    function switchToNewsView() {
+      currentView = 'news';
+      document.getElementById('newsHeader').style.display = 'flex';
+      document.getElementById('bookmarkHeader').style.display = 'none';
+      document.getElementById('newsTabs').style.display = 'flex';
+      document.getElementById('newsList').style.display = 'flex';
+      document.getElementById('bookmarkContainer').style.display = 'none';
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const activeNav = document.querySelector(`.nav-item[data-nav="${currentTab}"]`);
+      if (activeNav) activeNav.classList.add('active');
+      else document.querySelector('.nav-item[data-nav="all"]').classList.add('active');
+    }
+
+    function switchToBookmarksView() {
+      currentView = 'bookmarks';
+      document.getElementById('newsHeader').style.display = 'none';
+      document.getElementById('bookmarkHeader').style.display = 'flex';
+      document.getElementById('newsTabs').style.display = 'none';
+      document.getElementById('newsList').style.display = 'none';
+      document.getElementById('bookmarkContainer').style.display = 'flex';
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelector('.nav-item[data-nav="bookmarks"]').classList.add('active');
+      renderBookmarks();
+    }
+
+    // ========== 收藏管理界面 ==========
+    let selectedFolderId = 'default';
+    function renderBookmarks() {
+      const container = document.getElementById('bookmarkContainer');
+      const bmData = getBookmarksData();
+      if (!bmData.folders.length) {
+        // 如果没有文件夹，创建默认
+        bmData.folders = [{ id: 'default', name: '默认文件夹' }];
+        saveBookmarksData(bmData);
+      }
+      if (!bmData.items.length) {
+        container.innerHTML = '<div class="empty">📂 还没有收藏任何新闻，点击文章右侧的心形按钮添加吧</div>';
+        return;
+      }
+      // 确保选中的文件夹存在
+      if (!bmData.folders.find(f => f.id === selectedFolderId)) {
+        selectedFolderId = bmData.folders[0].id;
+      }
+      const filteredItems = bmData.items.filter(item => item.folderId === selectedFolderId);
+      let html = '<div class="folder-bar">';
+      bmData.folders.forEach(folder => {
+        html += `<span class="folder-tag ${folder.id === selectedFolderId ? 'active' : ''}" data-folder-id="${folder.id}" onclick="selectFolder('${folder.id}')">${folder.name} (${bmData.items.filter(i=>i.folderId===folder.id).length})</span>`;
+      });
+      html += `<div class="folder-actions">
+                <button class="folder-action-btn" onclick="newFolder()">＋新建</button>
+                <button class="folder-action-btn" onclick="renameFolder('${selectedFolderId}')">✎重命名</button>
+                <button class="folder-action-btn" onclick="deleteFolder('${selectedFolderId}')">🗑删除</button>
+              </div></div>`;
+      html += '<div class="bm-list">';
+      if (!filteredItems.length) {
+        html += '<div class="empty">此文件夹为空</div>';
+      } else {
+        filteredItems.forEach(item => {
+          html += `
+            <div class="bm-item">
+              <div class="bm-content">
+                <div class="bm-title">${item.title}</div>
+                <div class="bm-meta">${item.source || ''} · ${new Date(item.timestamp).toLocaleDateString()}</div>
+              </div>
+              <div class="bm-actions">
+                <button class="bm-btn" onclick="moveItem('${item.id}')">移动</button>
+                <button class="bm-btn" onclick="removeItem('${item.id}')">删除</button>
+                ${item.link ? `<button class="bm-btn" onclick="window.open('${item.link}', '_blank')">原文</button>` : ''}
+              </div>
+            </div>`;
+        });
+      }
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function selectFolder(folderId) {
+      selectedFolderId = folderId;
+      renderBookmarks();
+    }
+
+    // 文件夹操作
+    function newFolder() {
+      showModal('新建文件夹', '<input id="folderNameInput" placeholder="文件夹名称">', () => {
+        const name = document.getElementById('folderNameInput').value.trim();
+        if (!name) return alert('名称不能为空');
+        const bmData = getBookmarksData();
+        const id = 'folder_' + Date.now();
+        bmData.folders.push({ id, name });
+        saveBookmarksData(bmData);
+        selectedFolderId = id;
+        renderBookmarks();
+        closeModal();
+      });
+    }
+    function renameFolder(folderId) {
+      const bmData = getBookmarksData();
+      const folder = bmData.folders.find(f => f.id === folderId);
+      if (!folder) return;
+      showModal('重命名文件夹', `<input id="folderNameInput" value="${folder.name}">`, () => {
+        const name = document.getElementById('folderNameInput').value.trim();
+        if (!name) return alert('名称不能为空');
+        folder.name = name;
+        saveBookmarksData(bmData);
+        renderBookmarks();
+        closeModal();
+      });
+    }
+    function deleteFolder(folderId) {
+      const bmData = getBookmarksData();
+      if (bmData.folders.length <= 1) return alert('至少保留一个文件夹');
+      if (!confirm('确定删除该文件夹？其中的收藏将移至默认文件夹。')) return;
+      const defaultFolder = bmData.folders.find(f => f.id === 'default') || bmData.folders[0];
+      bmData.items.forEach(item => {
+        if (item.folderId === folderId) item.folderId = defaultFolder.id;
+      });
+      bmData.folders = bmData.folders.filter(f => f.id !== folderId);
+      saveBookmarksData(bmData);
+      selectedFolderId = defaultFolder.id;
+      renderBookmarks();
+    }
+
+    // 条目操作
+    function moveItem(itemId) {
+      const bmData = getBookmarksData();
+      const folders = bmData.folders.filter(f => f.id !== selectedFolderId);
+      if (!folders.length) return alert('没有其他文件夹，请先新建文件夹');
+      let options = folders.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
+      showModal('移动到文件夹', `<select id="moveSelect">${options}</select>`, () => {
+        const targetId = document.getElementById('moveSelect').value;
+        const item = bmData.items.find(i => i.id === itemId);
+        if (item) {
+          item.folderId = targetId;
+          saveBookmarksData(bmData);
+          renderBookmarks();
+        }
+        closeModal();
+      });
+    }
+    function removeItem(itemId) {
+      if (!confirm('确定删除这条收藏？')) return;
+      const bmData = getBookmarksData();
+      bmData.items = bmData.items.filter(i => i.id !== itemId);
+      saveBookmarksData(bmData);
+      renderBookmarks();
+      // 同时更新新闻页面的心形按钮
+      if (currentView === 'news') renderNews();
+    }
+
+    // 弹窗
+    function showModal(title, innerHTML, onConfirm) {
+      const overlay = document.getElementById('modalOverlay');
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+        <h3>${title}</h3>
+        ${innerHTML}
+        <div class="modal-actions">
+          <button onclick="closeModal()">取消</button>
+          <button class="primary" id="modalConfirmBtn">确定</button>
+        </div>`;
+      document.getElementById('modalConfirmBtn').addEventListener('click', onConfirm);
+      overlay.classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+    document.getElementById('modalOverlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+
+    // ========== 事件绑定 ==========
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
     });
     document.querySelectorAll('.nav-item').forEach(nav => {
       nav.addEventListener('click', () => {
-        const navTab = nav.dataset.nav;
-        if (navTab === 'about') {
-          alert('🧠 心理学日报 · 每日更新\n数据来源为公开学术新闻，仅供参考。');
-          return;
+        const navVal = nav.dataset.nav;
+        if (navVal === 'bookmarks') {
+          switchToBookmarksView();
+        } else {
+          setActiveTab(navVal);
         }
-        setActiveTab(navTab);
       });
     });
+    document.getElementById('backToNewsBtn').addEventListener('click', switchToNewsView);
 
-    // ========== 卡片点击弹出详情 ==========
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalContent = document.getElementById('modalContent');
-    function openDetail(index) {
-      const filtered = currentTab === 'china' ? allNews.filter(n => n.region === 'china')
-                     : currentTab === 'world' ? allNews.filter(n => n.region === 'world')
-                     : allNews;
-      const news = filtered[index];
-      if (!news) return;
-      modalContent.innerHTML = `
-        <button class="close-btn" onclick="closeModal()">✕</button>
-        ${news.image ? `<img src="${news.image}" onerror="this.style.display='none';">` : ''}
-        <h2>${news.title}</h2>
-        <p>${news.summary || '暂无详细摘要'}</p>
-        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">
-          ${news.source ? `<strong>来源：</strong>${news.source}<br>` : ''}
-          ${news.link ? `<a href="${news.link}" target="_blank">🔗 查看原文</a>` : ''}
-        </div>
-      `;
-      modalOverlay.classList.add('open');
-    }
-    function closeModal() {
-      modalOverlay.classList.remove('open');
-    }
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // 启动
+    // 初始加载
     loadNews();
   </script>
 </body>
